@@ -10,8 +10,8 @@
       - name: Launch the new EC2 Instance
         ec2:
           group: default        #security Grp
-          aws_access_key: AKIAJMRRIEPR4JF7FECA
-          aws_secret_key: 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
+          aws_access_key: "{{ aws_access_key }}"
+          aws_secret_key: "{{ aws_secret_key }}"
           instance_type: t2.micro   #instance class
           image: ami-011b3ccf1bd6db744   # AMI
           user_data: "{{ lookup('file', 'user_data.sh') }}"
@@ -38,8 +38,8 @@
 
       - name: Ensure all instances are tagged
         ec2_tag:
-          aws_access_key: AKIAJMRRIEPR4JF7FECA
-          aws_secret_key: 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
+          aws_access_key: "{{ aws_access_key }}"
+          aws_secret_key: "{{ aws_secret_key }}"
           region:  us-east-1
           resource: '{{ item.id }}'   
           state: present
