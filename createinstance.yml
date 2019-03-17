@@ -38,8 +38,8 @@
 
       - name: Ensure all instances are tagged
         ec2_tag:
-	  aws_access_key: AKIAJMRRIEPR4JF7FECA
-         aws_secret_key: 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
+          aws_access_key: AKIAJMRRIEPR4JF7FECA
+          aws_secret_key: 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
           region:  us-east-1
           resource: '{{ item.id }}'   
           state: present
