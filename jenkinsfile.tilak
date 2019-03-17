@@ -1,6 +1,9 @@
 pipeline {
   agent any
-  
+   parameters {
+    string(name: 'aws_access_key', description: 'dummykey')
+    string(name: 'aws_secret_key', description: 'dummykey')
+  }  
   tools { 
         maven 'Maven'
   }
