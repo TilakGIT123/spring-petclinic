@@ -1,0 +1,19 @@
+---
+- hosts: all
+  become: yes
+  gather_facts: yes
+
+  tasks:
+  - name: Install open JDK
+    yum: name=java*1.8* state=present
+    register: result
+  - debug:
+      msg: The Result is {{result}}
+  - name: copy content
+    copy: src=/home/ec2-user/petclinic/spring-petclinic/target/spring-petclinic-2.0.0.BUILD-SNAPSHOT.jar dest=/tmp/petclinic.jar
+    notify:
+    - start petclinic
+  handlers:
+  - name: start petclinic
+    shell: nohup java -jar /tmp/petclinic.jar &
+  
