@@ -14,7 +14,7 @@
           aws_secret_key: BiLYNbS9vZ1v9g2cQTxX720ONYxqshFwOMOLz5La
           instance_type: t2.micro   #instance class
           image: ami-011b3ccf1bd6db744   # AMI
-#          user_data: "{{ lookup('file', 'user_data.sh') }}"
+          user_data: "{{ lookup('file', 'user_data.sh') }}"
           wait: true                     
           region: us-east-1
           keypair: New_Key
