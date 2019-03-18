@@ -25,8 +25,8 @@ pipeline {
 	
     stage('CreateInstance') {
       steps {
-        whoami
-        which python
+        sh 'whoami'
+        sh 'which python'
         which ansible-playbook
 	ansiblePlaybook installation: 'Ansible', inventory: '/home/ec2-user/hosts', extras: '-e "aws_access_key=$aws_access_key aws_secret_key=$aws_secret_key" ', playbook: '$WORKSPACE/createinstance.yml'
       }
