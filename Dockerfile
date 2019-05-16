@@ -1,4 +1,6 @@
-FROM openjdk:8
-VOLUME /tmp
-ADD target/spring-petclinic-2.0.0.BUILD-SNAPSHOT.jar petclinic.jar
+FROM centos
+RUN yum update -y && yum install *openjdk*1.8* -y
+ADD petclinic.ja tmp/petclinic.jar
+WORKDIR /tmp
 ENTRYPOINT ["java","-jar","petclinic.jar"]
+EXPOSE 8080
