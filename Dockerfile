@@ -1,5 +1,5 @@
 FROM centos
-RUN yum install java-1.8.0-openjdk-devel
+RUN yum install java-1.8-openjdk-devel
 ADD petclinic.ja tmp/petclinic.jar
 WORKDIR /tmp
 ENTRYPOINT ["java","-jar","petclinic.jar"]
