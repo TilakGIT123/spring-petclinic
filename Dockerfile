@@ -1,13 +1,10 @@
-
 pipeline {
   agent any
   tools { 
         maven 'Maven'       
-  }
-  
+  }  
   stages {
-    stage('Clone repository') {
-	
+    stage('Clone repository') {	
       steps {
         checkout scm
         sh 'echo $MYJOB'
