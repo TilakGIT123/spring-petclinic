@@ -4,16 +4,10 @@ pipeline {
   tools { 
         maven 'Maven'       
   }
-  environment {
-        MYJOB = 'DevOps'
-        BUILD = 'PIPELINE'
-    }
+  
   stages {
     stage('Clone repository') {
-	    environment {
-        MYJOB = 'DevOps1'
-        BUILD = 'PIPELINE1'
-      }
+	
       steps {
         checkout scm
         sh 'echo $MYJOB'
