@@ -2,10 +2,10 @@ pipeline {
   agent any
   tools { 
         maven 'Maven'       
-  }  
+       } 
   stages {
     stage('Clone repository') {	
-      steps {
+      steps{
         checkout scm
         sh 'echo $MYJOB'
       }
@@ -21,7 +21,6 @@ pipeline {
       sh 'docker push -t 180865749814.dkr.ecr.us-east-1.amazonaws.com/mypet:latest'
       }
       }
-      } 
-      
+      }
       }
     }
